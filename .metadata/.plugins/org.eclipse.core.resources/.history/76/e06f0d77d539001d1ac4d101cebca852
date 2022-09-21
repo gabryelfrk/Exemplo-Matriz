@@ -1,0 +1,32 @@
+package exemplo;
+
+import java.util.Scanner;
+
+public class Agenda {
+
+	public static void main(String[] args) {
+		
+		Scanner leia = new Scanner(System.in);
+		
+		String agenda[][] = new String[24][31]; // 0-30
+		
+		int hora;
+		int dia;
+		char opcao;
+		
+		System.out.println("AGENDA");
+		do {
+			System.out.println("Digite o dia do evento: ");
+			dia = leia.nextInt()-1; // -1 pra evitar problema ao pesquisar 
+			System.out.println("Digite a hora do evento: ");
+			hora = leia.nextInt();		
+			leia.nextLine(); // limpar buffer do teclado
+			System.out.println("Descrição: ");
+			agenda[hora][dia] = leia.nextLine();	
+			System.out.print("Continuar? S/N: ");
+			opcao = leia.next().toUpperCase().charAt(0);
+		} while(opcao != 'N');
+
+	}
+
+}
